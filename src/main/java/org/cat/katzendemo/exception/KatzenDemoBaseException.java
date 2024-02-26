@@ -1,15 +1,15 @@
 package org.cat.katzendemo.exception;
 
-public class KatzenBaseException extends Exception {
-    KatzenBaseException(String msg) {
+public class KatzenDemoBaseException extends Exception {
+    KatzenDemoBaseException(String msg) {
         super(msg);
     }
 
-    KatzenBaseException(String msg, Throwable cause) {
+    KatzenDemoBaseException(String msg, Throwable cause) {
         super(msg, cause);
     }
 
-    KatzenBaseException(Throwable cause) {
+    KatzenDemoBaseException(Throwable cause) {
         super(cause);
     }
 }
