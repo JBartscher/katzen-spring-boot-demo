@@ -54,7 +54,7 @@ public class CatController {
     @PostMapping
     public ResponseEntity<Cat> createCat(@RequestBody CatDTO catDTO) {
         var newCat = catService.create(catDTO);
-        return ResponseEntity.created(URI.create("/cat" + newCat.getId())).body(newCat);
+        return ResponseEntity.created(URI.create("/cat/" + newCat.getId())).body(newCat);
     }
 
 

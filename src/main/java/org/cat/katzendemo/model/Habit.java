@@ -1,34 +1,29 @@
 package org.cat.katzendemo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Set;
-
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "Cat")
+@Table(name = "Habit")
 @Entity
-public class Cat {
-
+public class Habit {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(unique = true)
     private String name;
-    private Breed breed;
-    private Float weight;
 
-    @OneToMany(mappedBy = "cat")
-    private Set<Habit> habits;
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name="cat_id", nullable=true)
+    private Cat cat;
 
-    public Cat(String name, Breed breed, Float weight) {
+    public Habit(String name) {
         this.name = name;
-        this.breed = breed;
-        this.weight = weight;
     }
 }
